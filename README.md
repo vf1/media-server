@@ -28,6 +28,6 @@ The media server is [node js](http://nodejs.org/) application based on [upnpserv
 
 Build node-webkit packages
 --------------------------
-Requires [python 2.7](http://www.python.org/) version 2.7 to run the script.
+Requires [python 2.7](http://www.python.org/) to run the script.
 
     nodewebkit.py
