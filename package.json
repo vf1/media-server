@@ -1,0 +1,49 @@
+{
+  "name": "open-media-server",
+  "version": "0.1.0",
+  "description": "Open UPNP/DLNA media server for Windows/Mac/Linux",
+  "main": "http://localhost:3000",
+  "node-main": "./server.js",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "dependencies": {
+    "react": "~0.9.0",
+    "react-async": "~0.6.0",
+    "react-router-component": "~0.7.0",
+    "express": "~3.4.8",
+    "node-jsx": "~0.2.1",
+    "superagent": "~0.16.0",
+    "socket.io": "~0.9.16",
+    "winston": "~0.7.2",
+    "underscore": "~1.6.0",
+    "node-ssdp": "~0.2.0",
+    "nconf": "~0.6.9",
+    "upnpserver": "git://github.com/vf1/upnpserver.git"
+  },
+  "devDependencies": {
+    "reactify": "~0.7.0",
+    "node-dev": "~2.1.6",
+    "envify": "~1.2.0",
+    "browserify": "~3.26.0",
+    "connect-browserify": "~1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node-dev --no-deps server.js"
+  },
+  "window": {
+    "title": "Open Media Server",
+    "icon": "./public/icons/main32.png",
+    "toolbar": false,
+    "frame": true,
+    "min_width": 800,
+    "min_height": 600,
+    "width": 800,
+    "height": 600
+  },  
+  "author": "Vitali Fomine",
+  "license": "MIT"
+}

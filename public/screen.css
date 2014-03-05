@@ -1,0 +1,80 @@
+
+body {
+    padding-top: 70px;
+/* scrollspy fix
+    height: 100%;
+*/
+}
+
+.section {
+    padding-top: 50px;
+    margin-top: -50px;
+}
+
+.log-table {
+    overflow: auto;
+    max-height: 500px;
+}
+
+.log-time {
+    white-space: nowrap;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+.formwrap {
+    clear: both;
+    padding-bottom: 10px;
+}
+
+.formwrap:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.formwrap>form>div {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.formwrap>form>div .form-control {
+    width: 100%;
+}
+
+.btngroup .btn {
+    margin-right: 4px;
+}
+
+.status-running {
+    color: green;
+}
+
+.status-stopped {
+    color: red;
+}
+
+.status-starting {
+    color: blue;
+}
+
+.affix {
+    top: 150px;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.form-control.error:focus {
+    border-color: #FF0000;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,0,0,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255, 0, 0, 0.6);
+}
+/*
+.spy-fix {
+    height: 2000px;
+}
+*/

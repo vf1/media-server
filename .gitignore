@@ -1,0 +1,4 @@
+*.log
+*.options
+/node_modules
+/nw
