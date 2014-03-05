@@ -18,7 +18,7 @@ Version 0.1.0
 
 Development
 ===========
-The media server is [node js](http://nodejs.org/) application based on [upnpserver](https://github.com/oeuillot/upnpserver) powered by [node-webkit](https://github.com/rogerwang/node-webkit), [reactjs](https://reactjs.org) and other useful node-js modules.
+The media server is [node js](http://nodejs.org/) application based on [upnpserver](https://github.com/oeuillot/upnpserver) powered by [node-webkit](https://github.com/rogerwang/node-webkit), [reactjs](http://reactjs.org) and other useful node-js modules.
 
     git clone https://github.com/vf1/media-server.git
     npm install
