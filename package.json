@@ -19,7 +19,7 @@
     "socket.io": "~0.9.16",
     "winston": "~0.7.2",
     "underscore": "~1.6.0",
-    "node-ssdp": "~0.2.0",
+    "node-ssdp": "~0.2.1",
     "nconf": "~0.6.9",
     "upnpserver": "git://github.com/vf1/upnpserver.git"
   },
