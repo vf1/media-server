@@ -6,6 +6,7 @@
 var React = require('react');
 var ListenerMixin = require('./ListenerMixin');
 var Underscore = require('Underscore');
+var xRegExp = require('xregexp').XRegExp;
 
 var Library = React.createClass({
 
@@ -144,9 +145,14 @@ var Library = React.createClass({
     
     getErrors: function () {
         
+        if (!this.mountpathre || !this.pathre) {
+            this.mountpathre = xRegExp.build('^(?:(?:\\/)|(?:(?:[\\/]{{char}}+)+))?$', { char: '[_0-9\\p{L}\\-\\.\\s]' });
+            this.pathre = xRegExp.build('^(?:[a-zA-Z]\\:|[\\/])(?:[\\/]{{char}}+)+$', { char: '[_0-9\\p{L}\\-\\.\\s]' });
+        }
+        
         var errors = {
-            mountpath: !(/^\/(([\w]+\/)*[\w]+)?$/.test(this.state.edit.mountpath)),
-            path: !(/^(?:[\w]\:|[\/\\])([\/\\][A-Za-z_\-\s0-9\.]*)+$/.test(this.state.edit.path)),
+            mountpath: !this.mountpathre.test(this.state.edit.mountpath),
+            path: !this.pathre.test(this.state.edit.path),
             type: !(/music|path/.test(this.state.edit.type)),
             messages: []
         };
