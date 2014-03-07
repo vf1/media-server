@@ -228,7 +228,7 @@ var Library = React.createClass({
                             <tr>
                                 <th className="col-xs-1"> </th>
                                 <th className="col-xs-4">Mount path</th>
-                                <th className="col-xs-4">Real path</th>
+                                <th className="col-xs-4">Path</th>
                                 <th className="col-xs-3">Type</th>
                             </tr>
                         </thead>
@@ -261,7 +261,7 @@ var Library = React.createClass({
                             </div>
                             <div className="col-xs-4">
                                 <div className="input-group">
-                                    <input type="text" className={'form-control' + (errors.path ? ' error' : '')} placeholder="Real path"
+                                    <input type="text" className={'form-control' + (errors.path ? ' error' : '')} placeholder="Path"
                                         value={this.state.edit.path} onChange={this.onPathChange}/>
                                     <span className="input-group-btn">
                                         <button className="btn btn-default" type="button" onClick={this.selectDir}>...</button>
