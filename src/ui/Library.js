@@ -146,7 +146,7 @@ var Library = React.createClass({
     getErrors: function () {
         
         if (!this.mountpathre || !this.pathre) {
-            this.mountpathre = xRegExp.build('^(?:(?:\\/)|(?:(?:[\\/]{{char}}+)+))?$', { char: '[_0-9\\p{L}\\-\\.\\s]' });
+            this.mountpathre = xRegExp.build('^(?:(?:\\/)|(?:(?:[\\/]{{char}}+)+))$', { char: '[_0-9\\p{L}\\-\\.\\s]' });
             this.pathre = xRegExp.build('^(?:[a-zA-Z]\\:|[\\/])(?:[\\/]{{char}}+)+$', { char: '[_0-9\\p{L}\\-\\.\\s]' });
         }
         
