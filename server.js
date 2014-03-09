@@ -50,7 +50,7 @@ var express     = expressModule();
 var httpServer  = require('http').createServer(express);
 var io          = require('socket.io').listen(httpServer, { log: false });
 
-var Underscore  = require('Underscore');
+var Underscore  = require('underscore');
 var url         = require('url');
 var reactify    = require('reactify');
 var browserify  = require('connect-browserify');

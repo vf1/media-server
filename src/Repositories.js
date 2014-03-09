@@ -3,7 +3,7 @@
 
 var util = require("util");
 var events = require("events");
-var Underscore = require("Underscore");
+var Underscore = require("underscore");
 var PathRepository  = require('upnpserver').PathRepository;
 var MusicRepository = require('upnpserver').MusicRepository;
 

@@ -5,7 +5,7 @@
 
 var React = require('react');
 var ListenerMixin = require('./ListenerMixin');
-var Underscore = require('Underscore');
+var Underscore = require('underscore');
 var xRegExp = require('xregexp').XRegExp;
 
 var Library = React.createClass({
