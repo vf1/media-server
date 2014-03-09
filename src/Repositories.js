@@ -64,21 +64,27 @@ Repositories.prototype.get = function (reps) {
 
 Repositories.prototype.getUpnp = function () {
     
-    return Underscore.map(this.repositories, function (item) {
-        try {
-            switch (item.type) {
-            case 'music':
-                return new MusicRepository(item.mountpath, item.path);
-            case 'path':
-                return new PathRepository(item.mountpath, item.path);
-            default:
-                this.logger.warn('Unknown repository type (' + item.type + ') ignored');
-                break;
+    return Underscore.filter(
+        Underscore.map(this.repositories, function (item) {
+            try {
+                switch (item.type) {
+                case 'music':
+                    return new MusicRepository(item.mountpath, item.path);
+                case 'path':
+                    return new PathRepository(item.mountpath, item.path);
+                default:
+                    this.logger.warn('Unknown repository type (' + item.type + ') ignored');
+                    break;
+                }
+            } catch (e) {
+                this.logger.error('Failed to create repository: ' + e.message);
             }
-        } catch (e) {
-            this.logger.error('Failed to create repository: ' + e.message);
-        }
-    });
+        }, this),
+        function (item) {
+            return item ? true : false;
+        },
+        this
+    );
 };
 
 module.exports = Repositories;
