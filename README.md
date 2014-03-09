@@ -7,13 +7,13 @@ How to install and run
 ======================
 The media server is available as pre built binaries or node-webkit application.
 
-Version 0.1.0
+Version 0.1.1
 -------------
 
-* [Windows .zip](https://github.com/vf1/media-server/releases/download/v0.1.0/open-media-server-0.1.0-x86.zip)
-* [Linux 32bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.1.0/open-media-server-0.1.0-ia32.tar.gz)
-* [Linux 64bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.1.0/open-media-server-0.1.0-x64.tar.gz)
-* [Node-Webkit .nw](https://github.com/vf1/media-server/releases/download/v0.1.0/open-media-server-0.1.0.nw)
+* [Windows .zip](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1-x86.zip)
+* [Linux 32bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1-ia32.tar.gz)
+* [Linux 64bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1-x64.tar.gz)
+* [Node-Webkit .nw](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1.nw)
 
 
 Development
