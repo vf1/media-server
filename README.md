@@ -21,13 +21,24 @@ Development
 The media server is [node js](http://nodejs.org/) application based on [upnpserver](https://github.com/oeuillot/upnpserver) powered by [node-webkit](https://github.com/rogerwang/node-webkit), [reactjs](http://reactjs.org) and other useful node-js modules.
 
     git clone https://github.com/vf1/media-server.git
-    npm install
+    npm install --production
     flatten-packages
 
 *The [flatten-packages](https://github.com/arifsetiawan/flatten) eliminates this [issue](http://stackoverflow.com/questions/13318364/how-to-deploy-node-js-application-with-deep-node-modules-structure-on-windows).*
 
 Build node-webkit packages
 --------------------------
+
+There are two ways: using a *python* or *grunt* script.
+
+### Python script
+
 Requires [python 2.7](http://www.python.org/) to run the script.
 
     nodewebkit.py
+
+### Gruntfile
+
+Requres [grunt-cli](http://gruntjs.com/getting-started) to run ```Gruntfile```. Install project dev dependencies with ```npm install```.
+
+    grunt
