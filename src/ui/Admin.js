@@ -8,10 +8,9 @@ var React       = require('react');
 var Logger      = require('./Logger');
 var Status      = require('./Status');
 var Control     = require('./Control');
-var Library      = require('./Library');
+var Library     = require('./Library');
 
-var io          = require('socket.io-client');
-
+var io = require('socket.io-client');
 
 var Admin = React.createClass({
 
