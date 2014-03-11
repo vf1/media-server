@@ -1,9 +1,9 @@
 
 body {
     padding-top: 70px;
-/* scrollspy fix
+    /* scrollspy fix
     height: 100%;
-*/
+    */
 }
 
 .section {
@@ -75,6 +75,40 @@ body {
 }
 /*
 .spy-fix {
-    height: 2000px;
+height: 2000px;
 }
 */
+
+/*
+http://www.webdesignerdepot.com/2012/11/how-to-create-a-simple-css3-tooltip/
+*/
+
+.css3tooltip {
+    display: inline;
+    position: relative;
+}
+
+.css3tooltip:hover:after {
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    right: -20px;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}
+
+.css3tooltip:hover:before {
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}

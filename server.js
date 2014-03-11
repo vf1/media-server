@@ -76,6 +76,11 @@ repositories.on('changed', function (sender) {
     io.sockets.emit('repositories', sender.get());
 });
 
+repositories.on('errors', function (sender) {
+
+    io.sockets.emit('repositories', sender.get());
+});
+
 repositories.on('delayed-changed', function (sender) {
 
     logger.info('Set repositories to UPNP server');

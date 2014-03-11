@@ -28,9 +28,28 @@ var Library = React.createClass({
     },
     
     onEvent: function (data) {
+        
+        var records, selectedCount = 0;
+        
+        records = Underscore.map(data.slice(0), function (newItem) {
+            
+            var oldItem = Underscore.find(this.state.records.slice(0), function (oldItem) {
+                return newItem.mountpath === oldItem.mountpath && newItem.path === oldItem.path && newItem.type === oldItem.type;
+            });
+            
+            if (oldItem) {
+                newItem.selected = oldItem.selected;
+                if (newItem.selected) {
+                    selectedCount += 1;
+                }
+            }
+            
+            return newItem;
+        }, this);
+
         this.setState({
-            records: this.sort(data.slice(0)),
-            selectedCount: 0
+            records: this.sort(records),
+            selectedCount: selectedCount
         });
 
         this.setChanging(false);
@@ -203,8 +222,13 @@ var Library = React.createClass({
         );
     },
     
-    render: function () {
+    onErrorClick: function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    },
 
+    render: function () {
+        
         /*jslint white: true */
         if (this.state.changing) {
             return (
@@ -216,15 +240,26 @@ var Library = React.createClass({
             var errors = this.getErrors(),
                 list = this.state.records.map(function (item, index) {
                 
-                    var checkbox = <input type='checkbox' readOnly />;
-                    checkbox.props.checked = item.selected ? true : false;
+                    var error = '',
+                        checkbox = <input type='checkbox' readOnly />;
                         
+                    checkbox.props.checked = item.selected ? true : false;
+
+                    if (item.error) {
+                        error = <a href="#" title={item.error} className="css3tooltip pull-right" onClick={this.onErrorClick}>
+                                    <span className="glyphicon glyphicon-exclamation-sign text-danger" title="Error"></span>
+                                </a>;
+                    }
+
                     return (
                         <tr key={index} className={item.selected ? 'warning' : ''} onClick={this.onRowClick} data-index={index}>
                             <td>{checkbox}</td>
                             <td>{item.mountpath}</td>
                             <td>{item.path}</td>
-                            <td>{item.type}</td>
+                            <td>
+                                {item.type}
+                                {error}
+                            </td>
                         </tr>
                     );
                 }, this),
