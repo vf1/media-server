@@ -118,9 +118,7 @@ var Admin = React.createClass({
                             </div>
                             <div id="serverlog" className="section">
                                 <h1 className='page-header'>Server Log</h1>
-                                <p>The full log stored in 
-                                <code>{this.state.files.log}</code> file, exceptions log in 
-                                <code>{this.state.files.exception}</code> file.</p>
+                                <p>The full log stored in <code>{this.state.files.log}</code> file, exceptions log in <code>{this.state.files.exception}</code> file.</p>
                                 <Logger emitter={this.state.socketio} event-bulk="log-bulk" event-single="log-single" />
                             </div>
                             <br /><br />
