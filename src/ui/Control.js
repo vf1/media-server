@@ -31,7 +31,7 @@ var Control = React.createClass({
 
     render: function () {
 
-        /* jshint ignore:start */
+        /*jslint white: true */
         return (
             <button type="button" 
                 className={'btn btn-default' + (this.props.type ? (' btn-' + this.props.type) : '') + (this.state.enabled ? '' : ' disabled')}
@@ -39,8 +39,8 @@ var Control = React.createClass({
                         {this.props.children}
             </button>
         );
-        /* jshint ignore:end */
     }
-});
+    
+    });
 
 module.exports = Control;

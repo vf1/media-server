@@ -108,7 +108,7 @@ http://www.webdesignerdepot.com/2012/11/how-to-create-a-simple-css3-tooltip/
     border-width: 6px 6px 0 6px;
     bottom: 20px;
     content: "";
-    left: 50%;
+    left: 0px;
     position: absolute;
     z-index: 99;
 }

@@ -6,6 +6,8 @@
 var React = require('react');
 var ListenerMixin = require('./ListenerMixin');
 
+var LoggerTbody = require('./LoggerTbody');
+
 var Logger = React.createClass({
 
     mixins: [ListenerMixin],
@@ -20,6 +22,7 @@ var Logger = React.createClass({
             data[i].timestamp = new Date(data[i].timestamp);
         }
 
+        this.bigChanges = true;
         this.setState({ records: data.concat(this.state.records) });
 
         this.scrollBottom();
@@ -31,36 +34,6 @@ var Logger = React.createClass({
 
         this.scrollBottom();
     },
-
-    getClassName: function (level) {
-        switch (level) {
-        case 'silly':
-        case 'debug':
-            return 'info';
-        case 'verbose':
-        case 'info':
-            break;
-        case 'warn':
-            return 'warning';
-        case 'error':
-            return 'danger';
-        }
-        return '';
-    },
-    
-//    componentDidMount: function () {
-//        var resizeTable = function() {
-//            var height = $(window).height() - 500;
-//            console.log(height);
-//            if (height < 100)
-//                height = 100;
-//            $('.log-table22').height(height);
-//        };
-//        
-//        resizeTable();
-//            
-//        $(window).resize(resizeTable);
-//    },
     
     scrollBottom: function () {
         
@@ -76,9 +49,11 @@ var Logger = React.createClass({
         }, 1000);
     },
     
+    bigChanges: false,
+    
     render: function () {
         
-        /*jslint white: true */
+        /*jslint white: true, newcap: true */
         if (this.state.records.length === 0) {
             return (
                 <div>
@@ -86,21 +61,22 @@ var Logger = React.createClass({
                 </div>
             );
         } else {
-            var list = this.state.records.map(function (record, index) {
-                    return (
-                        <tr className={this.getClassName(record.level)} key={index}>
-                            <td>{record.message}</td>
-                            <td>
-                                <small className='log-time'>{
-                                            record.timestamp.toLocaleDateString("en-us", { month: "short" }) + ' ' + 
-                                            record.timestamp.getDate() + ' ' + 
-                                            record.timestamp.toLocaleTimeString()
-                                        }
-                                </small>
-                            </td>
-                        </tr>
-                    );
-                }, this);
+
+            var i, count,
+                tbodies = [];
+                
+            for (i = 0; i < this.state.records.length; i += 64) {
+                tbodies.push(
+                    <LoggerTbody
+                            records={this.state.records}
+                            startIndex={i}
+                            endIndex={((i + 63) < this.state.records.length) ? (i + 63) : (this.state.records.length - 1)}
+                            changed={this.bigChanges} 
+                            key={i} />
+                );
+            }
+            
+            this.bigChanges = false;
 
             return (
                 <div className='log-table'>
@@ -108,9 +84,7 @@ var Logger = React.createClass({
                         <thead>
                             <tr><th>Message</th><th>Timestamp</th></tr>
                         </thead>
-                        <tbody>
-                            {list}
-                        </tbody>
+                        {tbodies}
                     </table>
                 </div>
             );
