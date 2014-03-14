@@ -1,9 +1,10 @@
 {
   "name": "open-media-server",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Open UPNP/DLNA media server for Windows/Mac/Linux",
   "main": "http://localhost:3000",
   "node-main": "./server.js",
+  "node-remote": "<local>",
   "browserify": {
     "transform": [
       "reactify"
@@ -26,7 +27,8 @@
     "upnpserver": "git://github.com/vf1/upnpserver.git",
     "reactify": "~0.7.0",
     "browserify": "~3.26.0",
-    "connect-browserify": "~1.0.0"
+    "connect-browserify": "~1.0.0",
+    "react-bootstrap": "~0.5.2"
   },
   "devDependencies": {
     "node-dev": "~2.1.6",
@@ -48,7 +50,8 @@
     "min_width": 800,
     "min_height": 600,
     "width": 800,
-    "height": 600
+    "height": 600,
+    "show": false
   },
   "author": "Vitali Fomine",
   "license": "MIT"

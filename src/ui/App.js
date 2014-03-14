@@ -13,6 +13,8 @@ var NotFound    = Router.NotFound;
 
 var Admin       = require('./Admin');
 
+var NodeWebkitMixin = require('./NodeWebkitMixin');
+
 //ReactMount.allowFullPageRender = true;
 
 var App = React.createClass({
@@ -59,3 +61,32 @@ if (typeof window !== 'undefined') {
 //        ReactAsync.renderComponent(App(), document.body);
 //    };
 //}
+
+var hasOption = function (args, option) {
+    
+    var i;
+    for (i = 0; i < args.length; i += 1) {
+        if (args[i].indexOf(option) !== -1 && args[i].length === option.length) {
+            return true;
+        }
+    }
+    
+    return false;
+};
+
+var nw = NodeWebkitMixin.getNw();
+if (nw) {
+    
+    nw.gui.App.on('open', function (cmdline) {
+
+        if (hasOption(cmdline.split(' ').slice(1), '--hide') === false) {
+            nw.window.show();
+            nw.window.focus();
+        }
+    });
+
+    if (hasOption(nw.gui.App.argv, '--hide') === false) {
+        nw.window.show();
+        nw.window.focus();
+    }
+}

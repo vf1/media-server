@@ -5,6 +5,12 @@
 
 var React       = require('react');
 
+var Modal  = require('react-bootstrap/Modal');
+var Button = require('react-bootstrap/Button');
+var OverlayTriggerMixin = require('react-bootstrap/OverlayTriggerMixin');
+
+var NodeWebkitMixin = require('./NodeWebkitMixin');
+
 var Logger      = require('./Logger');
 var Status      = require('./Status');
 var Control     = require('./Control');
@@ -13,6 +19,11 @@ var Library     = require('./Library');
 var io = require('socket.io-client');
 
 var Admin = React.createClass({
+    
+    mixins: [
+        OverlayTriggerMixin,
+        NodeWebkitMixin
+    ],
 
     getInitialState: function () {
         return this.getDefaultState();
@@ -44,6 +55,12 @@ var Admin = React.createClass({
         });
         
         this.createAffix();
+        
+        if (this.nw) {
+            this.nw.window.on('close', function () {
+                self.setState({ wantClose: true });
+            });
+        }
     },
     
     createAffix: function () {
@@ -75,6 +92,38 @@ var Admin = React.createClass({
                     '<script src="/bundle.js"></script>' +
                 '</body>' +
                 '</html>';
+        }
+    },
+    
+    handleExit: function () {
+        this.nw.window.close(true);
+    },
+    
+    handleHide: function () {
+        this.setState({ wantClose: false });
+        this.nw.window.hide();
+    },
+    
+    handleCancelExit: function () {
+        this.setState({ wantClose: false });
+    },
+    
+    renderOverlay: function () {
+        /*jslint white: true, newcap: true */
+        if (this.state.wantClose) {
+            return (
+                <Modal title="Exit or hide window" onRequestHide={this.handleCancelExit}>
+                    <div className="modal-body">
+                        Do you want to exit the application or hide the main window and continue working media server?
+                    </div>
+                    <div className="modal-footer">
+                        <Button onClick={this.handleExit}>Exit</Button>
+                        <Button bsStyle="primary" onClick={this.handleHide}>Hide window</Button>
+                    </div>
+                </Modal>
+            );
+        } else {
+            return <span/>;
         }
     },
 
