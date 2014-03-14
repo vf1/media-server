@@ -5,7 +5,7 @@ This is an early version of UPNP/DLNA media server for Windows/Mac/Linux.
 
 How to install and run
 ======================
-The media server is available as pre built binaries or node-webkit application.
+The media server is available as pre built binaries or node-webkit application. To hide the window when you start the application, use the ```--hide``` argument command line.
 
 Version 0.1.1
 -------------
