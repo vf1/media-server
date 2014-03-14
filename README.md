@@ -7,13 +7,14 @@ How to install and run
 ======================
 The media server is available as pre built binaries or node-webkit application. To hide the window when you start the application, use the ```--hide``` argument command line.
 
-Version 0.1.1
+Version 0.2.0
 -------------
 
-* [Windows .zip](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1-x86.zip)
-* [Linux 32bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1-ia32.tar.gz)
-* [Linux 64bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1-x64.tar.gz)
-* [Node-Webkit .nw](https://github.com/vf1/media-server/releases/download/v0.1.1/open-media-server-0.1.1.nw)
+* [Windows .zip](https://github.com/vf1/media-server/releases/download/v0.2.0/open-media-server-0.2.0-win-x86.zip)
+* [Linux 32bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.2.0/open-media-server-0.2.0-linux-ia32.tar.gz)
+* [Linux 64bit .tar.gz](https://github.com/vf1/media-server/releases/download/v0.2.0/open-media-server-0.2.0-linux-x64.tar.gz)
+* [Mac .zip](https://github.com/vf1/media-server/releases/download/v0.2.0/open-media-server-0.2.0-osx-ia32.zip)
+* [Node-Webkit .nw](https://github.com/vf1/media-server/releases/download/v0.2.0/open-media-server-0.2.0.nw)
 
 
 Development
