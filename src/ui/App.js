@@ -74,19 +74,32 @@ var hasOption = function (args, option) {
     return false;
 };
 
-var nw = NodeWebkitMixin.getNw();
+var tray, nw = NodeWebkitMixin.getNw();
 if (nw) {
     
+    var showWindow = function () {
+        nw.window.show();
+        nw.window.focus();
+    };
+
     nw.gui.App.on('open', function (cmdline) {
 
         if (hasOption(cmdline.split(' ').slice(1), '--hide') === false) {
-            nw.window.show();
-            nw.window.focus();
+            showWindow();
         }
     });
 
     if (hasOption(nw.gui.App.argv, '--hide') === false) {
-        nw.window.show();
-        nw.window.focus();
+        showWindow();
     }
+
+    var menu = new nw.gui.Menu();
+    menu.append(new nw.gui.MenuItem({ label: 'Show', click: showWindow }));
+
+    tray = new nw.gui.Tray({
+        title: 'Open Media Server',
+        icon: './public/icons/main16.png',
+        menu: menu
+    });
+    tray.on('click', showWindow);
 }
