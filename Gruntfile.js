@@ -6,31 +6,53 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         nodewebkit: {
-            options: {
-                app_name: 'media-server',
-                version: '0.9.2',
-                build_dir: './nw',
-                mac: true,
-                win: true,
-                linux32: true,
-                linux64: true,
-                keep_nw: true
-            },
-            src: [
-                './src/**/*',
-                './public/**/*',
-                './node_modules/**/*',
-                '!./node_modules/grunt/**/*',
-                '!./node_modules/grunt-*/**/*',
-                './server.js',
-                './package.json',
-                'README.md'
-            ]
+            build: {
+                options: {
+                    app_name: 'media-server',
+                    version: '0.9.2',
+                    build_dir: './nw',
+                    mac: true,
+                    win: true,
+                    linux32: true,
+                    linux64: true,
+                    keep_nw: true
+                },
+                src: './build/**/*',
+                dest: './'
+            }
+        },
+        clean: {
+            build: [ './build' ]
         },
         copy: {
+            build: {
+                expand: true,
+                src: [
+                    './src/**/*',
+                    './public/**/*',
+                    './node_modules/**/*',
+                    '!./node_modules/grunt/**/*',
+                    '!./node_modules/grunt-*/**/*',
+                    './server.js',
+                    './package.json',
+                    'README.md',
+                    '!./src/node-webkit.js'
+                ],
+                dest: './build'
+            },
             nw: {
                 src: './nw/releases/media-server/media-server.nw',
                 dest: './nw/<%= pkg.name %>-<%= pkg.version %>.nw'
+            }
+        },
+        replace: {
+            build: {
+                src: ['./src/node-webkit.js'],
+                dest: './build/src/',
+                replacements: [{
+                    from: '= false;',
+                    to: '= true;'
+                }]
             }
         },
         compress: {
@@ -73,9 +95,18 @@ module.exports = function (grunt) {
         }
     });
 
+
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-node-webkit-builder');
+    grunt.loadNpmTasks('grunt-text-replace');
 
-    grunt.registerTask('default', ['nodewebkit', 'copy', 'compress']);
+    grunt.registerTask('default', [
+        'clean:build',
+        'copy:build',
+        'replace:build',
+        'nodewebkit:build',
+        'compress'
+    ]);
 };

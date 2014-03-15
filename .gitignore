@@ -2,3 +2,4 @@
 *.options
 /node_modules
 /nw
+/build
