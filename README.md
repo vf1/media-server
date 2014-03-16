@@ -43,3 +43,5 @@ Requires [python 2.7](http://www.python.org/) to run the script.
 Requres [grunt-cli](http://gruntjs.com/getting-started) to run ```Gruntfile```. Install project dev dependencies with ```npm install```.
 
     grunt
+
+[![Analytics](https://ga-beacon.appspot.com/UA-8013035-4/media-server/README.md)](https://github.com/igrigorik/ga-beacon)
