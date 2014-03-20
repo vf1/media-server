@@ -4,7 +4,7 @@ node_js:
   - "0.11"
 before_install:
   - npm install -g grunt-cli
-  - npm install -g https://github.com/vf1/flatten.git
+  - npm install -g git://github.com/vf1/flatten.git
 install:
   - npm install --production
   - flatten-packages
