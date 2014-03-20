@@ -20,3 +20,4 @@ deploy:
     - /nw/open-media-server-0.2.1.nw
   on:
     tags: true
+    all_branches: true
