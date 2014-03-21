@@ -10,6 +10,9 @@ install:
   - flatten-packages
   - npm install
 before_script: grunt
+script:
+  - ls $TRAVIS_BUILD_DIR
+  - ls $TRAVIS_BUILD_DIR/nw
 deploy:
   skip_cleanup: true
   edge: true
