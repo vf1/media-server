@@ -17,7 +17,7 @@ deploy:
   api-key:
     - secure: "H+d5TOQAqkOI61Qphdb4LfDWM5aWt08os0wwE9D6iIk4knopTVMdhPWmbT1JAZpHqYPvqvAFXAp9UCPCa/QrFJwe3+IdnvNAKXWiwwaoaxiSKN34ZUtdCM5qnMdoUkZh0hILfz2apQCWCGC85vmPKPiH9zv4x09EP07M2AhJROs="
   file:
-    - $TRAVIS_BUILD_DIR/nw/open-media-server-0.2.1.nw
+    - $TRAVIS_BUILD_DIR/nw/open-media-server-0.2.0.nw
   on:
     tags: true
     all_branches: true
