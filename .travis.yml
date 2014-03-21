@@ -9,7 +9,7 @@ install:
   - npm install --production
   - flatten-packages
   - npm install
-before_script: grunt
+before_script: grunt --verbose
 script:
   - ls $TRAVIS_BUILD_DIR
   - ls $TRAVIS_BUILD_DIR/nw
