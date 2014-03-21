@@ -107,6 +107,7 @@ module.exports = function (grunt) {
         'copy:build',
         'replace:build',
         'nodewebkit:build',
+        'copy:nw',
         'compress'
     ]);
 };
