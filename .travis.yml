@@ -19,8 +19,7 @@ deploy:
   provider: releases
   api-key:
     - secure: kyFW7AYkAlhhvrIysuf2S0b1yLxpc/642stxuXpwW2WhABojDqOc5fJCXL0DQdrHP3w+D3w2oSMaYJvHEBBm0cLfQtBojVzle+8i+Of07Xl39P14mAjjbeNW+T/57hom2N0wwOGhksVuiUyjBnPf9QX5LPAWdOwZHAesMMN3dIM=
-  file:
-    - $TRAVIS_BUILD_DIR/nw/open-media-server-0.2.0.nw
+  file: $TRAVIS_BUILD_DIR/nw/open-media-server-0.2.0.nw
   on:
     tags: true
     all_branches: true
